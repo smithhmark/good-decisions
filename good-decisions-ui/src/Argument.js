@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import jd from './exampleData.json';
 
-const Outcome = (props) => {
-  return (<th>{props.children}</th>)
-}
+const topHeader = (fcols, outcomes) => {
+  let cells = [];
+  let row = 0;
+  let rid = rowid(row);
 
-const topHeader = (os) => {
-  return os.map(Outcome).unshift(<td></td>)
+  for (let col = 0; col < outcomes.length + fcols; col++) {
+    let cid = cellid(row, col);
+    if (col < fcols) {
+      cells.push(<th key={cid} id={cid}></th>);
+    } else {
+      cells.push(
+        <th key={cid} id={cid}>{outcomes[col - fcols]}</th>);
+    }
+  }
+  return <tr key={rid} id={rid}>{cells}</tr>
 }
 const Fact = (props) => {
   if (props.src) {
@@ -15,17 +24,32 @@ const Fact = (props) => {
   return (<th>{props.children}</th>)
 }
 
-const Input = (props) => {
-  return <td>{props.children}</td>
-}
-
-const buildRow = (rownum, facts, inputs) => {
+const buildRow = (row, fact, inputs, factCols) => {
+  let cells = [];
+  for (let col = 0; col < inputs.length + factCols; col++) {
+    let cid = cellid(row, col);
+    if (col === 0) {
+      cells.push(<Fact key={cid} id={cid} src={fact.src}>{fact.text}</Fact>);
+    } else {
+      cells.push(
+        <td key={cid} id={cid}>{inputs[col-factCols]}</td>);
+    }
+  }
   return (
-    <tr>
-      <Fact src={facts[rownum].src}>{facts[rownum].text}</Fact>
-      {inputs[rownum].map((ip) => {return <Input>{ip}</Input>})}
+    <tr key={rowid(row)}>
+     {cells}
     </tr>
   )
+  //    <Fact src={facts[row].src}>{fact.text}</Fact>
+  //    {inputs.map((ip) => {return <Input>{ip}</Input>})}
+}
+
+const cellid = (row, col) => {
+  return `cell-${row}-${col}`;
+}
+
+const rowid = (rownum) => {
+  return `row${rownum}`;
 }
 
 class Argument extends Component {
@@ -44,35 +68,16 @@ class Argument extends Component {
 
   render() {
     let rows = [];
-    let col = 0;
     let offset = 1; // how many cells left of the first outcome
     let row = 0;
     for (row = 0; row < this.state.facts.length + 1; row++) {
-      let cells = [];
-      let rowid = `row${row}`;
       if (row === 0) {
-        for (col = 0; col < this.state.outcomes.length + offset; col++) {
-          let cellid = `cell-${row}-${col}`;
-          if (col < offset) {
-            cells.push(<th key={cellid} id={cellid}></th>);
-          } else {
-            cells.push(
-              <th key={cellid} id={cellid}>{this.state.outcomes[col - offset]}</th>);
-          }
-        }
+        rows.push(topHeader(offset, this.state.outcomes));
       } else {
-        for (col = 0; col < this.state.outcomes.length + offset; col++) {
-          let cellid = `cell-${row}-${col}`;
-          if (col === 0) {
-            //cells.push(<th key={cellid} id={cellid}>{this.state.facts[row-1]}</th>);
-            cells.push(<Fact key={cellid} id={cellid} src={this.state.facts[row-1].src}>{this.state.facts[row-1].text}</Fact>);
-          } else {
-            cells.push(
-              <td key={cellid} id={cellid}>{this.state.inputs[row-1][col-offset]}</td>);
-          }
-        }
+        rows.push(
+          buildRow(row, this.state.facts[row-1], 
+            this.state.inputs[row-1], offset));
       }
-      rows.push(<tr key={rowid}>{cells}</tr>);
     }
     return (
       <div>
