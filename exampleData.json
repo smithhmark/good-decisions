@@ -1,0 +1,53 @@
+{
+        examples: [
+{
+  title: "How to Commute",
+  version: "0.1",
+  outcomes: [ "Buy Car", "Take transit/lyft"],
+  facts: [
+    {text: "commute 2-3 times a week (~12 commute days / month)",
+     src: null},
+    {text: "monthly vehicle maintainence is aprox $150 ( $12.5 / commute day)",
+     src: null},
+    {text: "Family member owns a car that is usually available",
+     src: null},
+    {text: "Renting for a day is $50",
+     src: null},
+    {text: "The train is $10 each way( $20 / commute day)",
+     src:"http://www.caltrain.com/Fares/farechart.html"},
+    {text: "Train schedule is inflexible",
+     src: null},
+    {text: "Writing/reading can be done on train",
+     src: null},
+    {text: "conferences calls often overlap commute",
+     src: null},
+    {text: "assuming 25mpg, and $4/g, daily fuel is $8/commute day",
+     src: null},
+    {text: "AAA est, cost of small SUV as ~$8000/year = $53/commute day",
+     src:"https://newsroom.aaa.com/tag/driving-cost-per-mile/"},
+    {text: "daily commute cost differnence is $30/day in favor of public transit",
+     src: null},
+    {text: "Lyfting both ways is $60/day",
+     src: null}
+  ],
+  users: {uid:"Sam",
+          inputs: [[0,0],
+            [1,0],
+            [0,1],
+            [1,0],
+            [1,0],
+            [0,-1],
+            [0,2],
+            [1,-1],
+            [0,0],
+            [-2,2],
+            [-1,1],
+            [1,-1]]}
+}
+]
+}
+
+
+
+
+
