@@ -67,22 +67,25 @@ class Argument extends Component {
   }
 
   render() {
+    console.log(this.props.children.title);
     let rows = [];
     let offset = 1; // how many cells left of the first outcome
     let row = 0;
-    for (row = 0; row < this.state.facts.length + 1; row++) {
+    for (row = 0; row < this.props.children.facts.length + 1; row++) {
       if (row === 0) {
-        rows.push(topHeader(offset, this.state.outcomes));
+        rows.push(topHeader(offset, this.props.children.outcomes));
       } else {
+        console.log("facts count:", this.props.children.facts.length);
+        console.log("inputs count:", this.props.children.users.inputs.length);
         rows.push(
-          buildRow(row, this.state.facts[row-1], 
-            this.state.inputs[row-1], offset));
+          buildRow(row, this.props.children.facts[row-1], 
+            this.props.children.users.inputs[row-1], offset));
       }
     }
     return (
       <div>
-        <h1>{this.state.title}</h1>
-        <h3>Contributions by:{this.state.userdata.uid}</h3>
+        <h1>{this.props.children.title}</h1>
+        <h3>Contributions by:{this.props.children.creator.uid}</h3>
         <div className="argument">
           <table>
             <tbody>
