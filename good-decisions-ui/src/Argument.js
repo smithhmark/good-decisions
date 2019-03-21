@@ -53,6 +53,14 @@ const rowid = (rownum) => {
 
 class Argument extends Component {
   render() {
+    let udata = null;
+    if (this.props.user) {
+      udata = this.props.children.users[this.props.user];
+    } else {
+      console.log("using creator(",this.props.children.creator.uid, ")'s inputs");
+      udata = this.props.children.users[this.props.children.creator.uid];
+      console.log("udata len:", udata.length);
+    }
     let rows = [];
     let offset = 1; // how many cells left of the first outcome
     let row = 0;
@@ -61,8 +69,7 @@ class Argument extends Component {
         rows.push(topHeader(offset, this.props.children.outcomes));
       } else {
         rows.push(
-          buildRow(row, this.props.children.facts[row-1], 
-            this.props.children.users.inputs[row-1], offset));
+          buildRow(row, this.props.children.facts[row-1], udata[row-1], offset));
       }
     }
     return (
