@@ -53,7 +53,6 @@ const rowid = (rownum) => {
 
 class Argument extends Component {
   render() {
-    console.log(this.props.children.title);
     let rows = [];
     let offset = 1; // how many cells left of the first outcome
     let row = 0;
@@ -61,8 +60,6 @@ class Argument extends Component {
       if (row === 0) {
         rows.push(topHeader(offset, this.props.children.outcomes));
       } else {
-        console.log("facts count:", this.props.children.facts.length);
-        console.log("inputs count:", this.props.children.users.inputs.length);
         rows.push(
           buildRow(row, this.props.children.facts[row-1], 
             this.props.children.users.inputs[row-1], offset));
