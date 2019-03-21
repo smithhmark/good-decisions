@@ -50,12 +50,18 @@
       "creator": {"uid":"Samantha"},
       "next_fact": 2,
       "next_outcome": 2,
-      "outcomes": [ "Run for office", "Don't run for office"],
+      "outcomes": [
+        {"text": "Run for office", "relid": 0},
+        {"text": "Don't run for office", "relid": 1}
+      ],
       "facts": [
         {"text": "The president has no privacy",
-         "src": null},
+         "src": null,
+         "relid":0},
         {"text": "The President gets to change the world",
-         "src": null}],
+         "src": null,
+         "relid":1}
+      ],
       "users": { "Samantha": {"0": {"0": -1, "1": 1},
                                "1": {"0": 0, "1": 2}},
                 "Sam": {"0": {"0": -2, "1": 2},
