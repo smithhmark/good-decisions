@@ -45,7 +45,7 @@
                 [1,-1]]}
     },
     {
-      "title": "Whether to Run for President",
+      "title": "Whether I Should Run for President",
       "version": "0.1",
       "creator": {"uid":"Samantha"},
       "outcomes": [ "Run for office", "Don't run for office"],
@@ -54,7 +54,9 @@
          "src": null},
         {"text": "The President gets to change the world",
          "src": null}],
-      "users": { "Samantha": [[-1,0], [0,2]] }
+      "users": { "Samantha": [[-1,1], [0,2]],
+              "Sam": [[-2,2], [0,2]]
+      }
     }
   ],
   "users": [
