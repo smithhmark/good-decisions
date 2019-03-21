@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import jd from './exampleData.json';
 
 const topHeader = (fcols, outcomes) => {
   let cells = [];
@@ -53,36 +52,29 @@ const rowid = (rownum) => {
 }
 
 class Argument extends Component {
-  state = {
-    argument: null
-  }
-  constructor() { 
-    super();
-    this.state.title = jd.examples[0].title;
-    this.state.userdata = {};
-    this.state.userdata.uid = jd.examples[0].users.uid;
-    this.state.outcomes = jd.examples[0].outcomes;
-    this.state.facts = jd.examples[0].facts;
-    this.state.inputs = jd.examples[0].users.inputs;
-  }
-
   render() {
     let rows = [];
     let offset = 1; // how many cells left of the first outcome
     let row = 0;
-    for (row = 0; row < this.state.facts.length + 1; row++) {
+    let udata = null;
+    if (this.props.user) {
+      udata = this.props.children.users[this.props.user];
+    } else {
+      udata = this.props.children.users[this.props.children.creator.uid];
+    }
+    for (row = 0; row < this.props.children.facts.length + 1; row++) {
       if (row === 0) {
-        rows.push(topHeader(offset, this.state.outcomes));
+        rows.push(topHeader(offset, this.props.children.outcomes));
       } else {
         rows.push(
-          buildRow(row, this.state.facts[row-1], 
-            this.state.inputs[row-1], offset));
+          buildRow(row, this.props.children.facts[row-1], udata[row-1], offset));
       }
     }
     return (
       <div>
-        <h1>{this.state.title}</h1>
-        <h3>Contributions by:{this.state.userdata.uid}</h3>
+        <h1>{this.props.children.title}</h1>
+        <h3>Created by:{this.props.children.creator.uid}</h3>
+        <h3>Contributions by:{this.props.user? this.props.user : this.props.children.creator.uid}</h3>
         <div className="argument">
           <table>
             <tbody>

@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
         <h1>ACH app</h1>
         <ArgList>{this.state.arguments}</ArgList>
-        <Argument />
+        <Argument>{this.state.arguments[1]}</Argument>
       </div>
 
     );
