@@ -2,6 +2,7 @@
   "examples": [
     {
       "title": "How to Commute",
+      "creator": {"uid":"Sam"},
       "version": "0.1",
       "outcomes": [ "Buy Car", "Take transit/lyft"],
       "facts": [
@@ -43,6 +44,18 @@
                 [-2,2],
                 [-1,1],
                 [1,-1]]}
+    },
+    {
+      "title": "Whether to Run for President",
+      "version": "0.1",
+      "creator": {"uid":"Samantha"},
+      "outcomes": [ "Run for office", "Don't run for office"],
+      "facts": [
+        {"text": "The president has no privacy",
+         "src": null},
+        {"text": "The President gets to change the world",
+         "src": null}],
+      "users": { "Samantha": [[-1,0], [0,2]] }
     }
   ]
 }
