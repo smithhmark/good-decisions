@@ -31,8 +31,7 @@
         {"text": "Lyfting both ways is $60/day",
          "src": null}
       ],
-      "users": {"uid":"Sam",
-              "inputs": [[0,0],
+      "users": {"Sam": [[0,0],
                 [1,0],
                 [0,1],
                 [1,0],
