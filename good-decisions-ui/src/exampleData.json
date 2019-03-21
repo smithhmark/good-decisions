@@ -48,14 +48,18 @@
       "title": "Whether I Should Run for President",
       "version": "0.1",
       "creator": {"uid":"Samantha"},
+      "next_fact": 2,
+      "next_outcome": 2,
       "outcomes": [ "Run for office", "Don't run for office"],
       "facts": [
         {"text": "The president has no privacy",
          "src": null},
         {"text": "The President gets to change the world",
          "src": null}],
-      "users": { "Samantha": [[-1,1], [0,2]],
-              "Sam": [[-2,2], [0,2]]
+      "users": { "Samantha": {"0": {"0": -1, "1": 1},
+                               "1": {"0": 0, "1": 2}},
+                "Sam": {"0": {"0": -2, "1": 2},
+                               "1": {"0": 0, "1": 2}},
       }
     }
   ],
