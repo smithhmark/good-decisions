@@ -53,17 +53,15 @@ const rowid = (rownum) => {
 
 class Argument extends Component {
   render() {
+    let rows = [];
+    let offset = 1; // how many cells left of the first outcome
+    let row = 0;
     let udata = null;
     if (this.props.user) {
       udata = this.props.children.users[this.props.user];
     } else {
-      console.log("using creator(",this.props.children.creator.uid, ")'s inputs");
       udata = this.props.children.users[this.props.children.creator.uid];
-      console.log("udata len:", udata.length);
     }
-    let rows = [];
-    let offset = 1; // how many cells left of the first outcome
-    let row = 0;
     for (row = 0; row < this.props.children.facts.length + 1; row++) {
       if (row === 0) {
         rows.push(topHeader(offset, this.props.children.outcomes));
@@ -75,7 +73,8 @@ class Argument extends Component {
     return (
       <div>
         <h1>{this.props.children.title}</h1>
-        <h3>Contributions by:{this.props.children.creator.uid}</h3>
+        <h3>Created by:{this.props.children.creator.uid}</h3>
+        <h3>Contributions by:{this.props.user? this.props.user : this.props.children.creator.uid}</h3>
         <div className="argument">
           <table>
             <tbody>
