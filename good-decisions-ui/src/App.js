@@ -8,7 +8,8 @@ class App extends Component {
   state = {}
   constructor() { 
     super();
-    this.state.arguments = jd.examples;
+    this.state.arguments = jd.arguments;
+    this.state.users = jd.users;
   }
   render() {
     return (
@@ -17,7 +18,6 @@ class App extends Component {
         <ArgList>{this.state.arguments}</ArgList>
         <Argument>{this.state.arguments[1]}</Argument>
       </div>
-
     );
   }
 }

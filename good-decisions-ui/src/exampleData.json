@@ -1,5 +1,5 @@
 {
-  "examples": [
+  "arguments": [
     {
       "title": "How to Commute",
       "creator": {"uid":"Sam"},
@@ -56,6 +56,14 @@
          "src": null}],
       "users": { "Samantha": [[-1,0], [0,2]] }
     }
+  ],
+  "users": [
+          {"uid": "Sam",
+                  "email": "sam@example.com"
+          },
+          { "uid": "Samantha",
+                  "email": "samantha@test.org"
+          }
   ]
 }
 
