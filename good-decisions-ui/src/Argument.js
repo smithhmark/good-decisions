@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import jd from './exampleData.json';
 
 const topHeader = (fcols, outcomes) => {
   let cells = [];
@@ -53,19 +52,6 @@ const rowid = (rownum) => {
 }
 
 class Argument extends Component {
-  state = {
-    argument: null
-  }
-  constructor() { 
-    super();
-    this.state.title = jd.examples[0].title;
-    this.state.userdata = {};
-    this.state.userdata.uid = jd.examples[0].users.uid;
-    this.state.outcomes = jd.examples[0].outcomes;
-    this.state.facts = jd.examples[0].facts;
-    this.state.inputs = jd.examples[0].users.inputs;
-  }
-
   render() {
     console.log(this.props.children.title);
     let rows = [];
