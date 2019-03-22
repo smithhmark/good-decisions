@@ -46,7 +46,7 @@
     },
     {
       "title": "Whether I Should Run for President",
-      "version": "0.1",
+      "version": "0.2",
       "creator": {"uid":"Samantha"},
       "next_fact": 2,
       "next_outcome": 2,
