@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Argument from './Argument';
-import ArgList from './ArgList';
+import Argument from './components/Argument';
+import ArgList from './components/ArgList';
 import jd from './exampleData.json';
 
 class App extends Component {
