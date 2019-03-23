@@ -1,5 +1,13 @@
 import cannedData from './exampleData';
 
+export const allArguments = () => {
+  return cannedData.arguments;
+}
+
+export const allUsers = () => {
+  return cannedData.users;
+}
+
 export const fetchArgument = (aid) => {
   return cannedData.arguments.filter((i) => {return i.aid === aid})[0];
 }
@@ -62,8 +70,10 @@ export const fetchUserSummaryData = (uid) => {
 }
 
 const api = {
-  fetchArgument:  fetchArgument,
-  buildUserRef:  buildUserRef,
+  allArguments: allArguments,
+  allUsers: allUsers,
+  fetchArgument: fetchArgument,
+  buildUserRef: buildUserRef,
   summarizeArgument: summarizeArgument,
   fetchUser: fetchUser,
   summarizeUser: summarizeUser,
