@@ -2,6 +2,7 @@
   "arguments": [
   {
       "title": "How to Commute",
+      "aid": 1001,
       "creator": {"uid":"Sam"},
       "version": "0.2",
       "outcomes": [
@@ -87,6 +88,7 @@
     },
     {
       "title": "Whether I Should Run for President",
+      "aid": 1002,
       "version": "0.2",
       "creator": {"uid":"Samantha"},
       "next_fact": 2,
@@ -112,10 +114,16 @@
   ],
   "users": [
           {"uid": "Sam",
-                  "email": "sam@example.com"
+                  "email": "sam@example.com",
+                  "args": {
+                          "owned": [1001], "contrib":[1001,1002]
+                  }
           },
           { "uid": "Samantha",
-                  "email": "samantha@test.org"
+                  "email": "samantha@test.org",
+                  "args": {
+                          "owned": [1002], "contrib":[1002]
+                  }
           }
   ]
 }
