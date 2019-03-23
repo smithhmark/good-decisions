@@ -23,7 +23,7 @@ class App extends Component {
         <Argument>{this.state.arguments[1]}</Argument>
         <h2>ArgumentLayout test</h2>
         <ArgumentLayout cellFactory={(cid, supp) => {
-            return ( <td key={cid}><textarea >{supp}</textarea></td>)}}>
+            return (<td key={cid}><textarea defaultValue={supp}/></td>)}}>
           {this.state.arguments[1]}
         </ArgumentLayout>
         <h2>User test</h2>
