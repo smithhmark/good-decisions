@@ -16,8 +16,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>ACH app</h1>
-        <ArgList>{this.state.arguments}</ArgList>
+        <h2>ArgList test</h2>
+        <ArgList>{this.state.arguments.map(api.summarizeArgument)}</ArgList>
+        <h2>Argument test</h2>
         <Argument>{this.state.arguments[1]}</Argument>
+        <h2>ArgumentLayout test</h2>
         <ArgumentLayout cellFactory={(cid, supp) => {
             return ( <td key={cid}><textarea >{supp}</textarea></td>)}}>
           {this.state.arguments[1]}
