@@ -1,61 +1,112 @@
 {
   "arguments": [
-    {
+  {
       "title": "How to Commute",
       "creator": {"uid":"Sam"},
-      "version": "0.1",
-      "outcomes": [ "Buy Car", "Take transit/lyft"],
-      "facts": [
-        {"text": "commute 2-3 times a week (~12 commute days / month)",
-         "src": null},
-        {"text": "monthly vehicle maintainence is aprox $150 ( $12.5 / commute day)",
-         "src": null},
-        {"text": "Family member owns a car that is usually available",
-         "src": null},
-        {"text": "Renting for a day is $50",
-         "src": null},
-        {"text": "The train is $10 each way( $20 / commute day)",
-         "src":"http://www.caltrain.com/Fares/farechart.html"},
-        {"text": "Train schedule is inflexible",
-         "src": null},
-        {"text": "Writing/reading can be done on train",
-         "src": null},
-        {"text": "conferences calls often overlap commute",
-         "src": null},
-        {"text": "assuming 25mpg, and $4/g, daily fuel is $8/commute day",
-         "src": null},
-        {"text": "AAA est, cost of small SUV as ~$8000/year = $53/commute day",
-         "src":"https://newsroom.aaa.com/tag/driving-cost-per-mile/"},
-        {"text": "daily commute cost differnence is $30/day in favor of public transit",
-         "src": null},
-        {"text": "Lyfting both ways is $60/day",
-         "src": null}
+      "version": "0.2",
+      "outcomes": [
+              {"text":"Buy Car", "relid":0},
+              {"text":"Take transit/lyft", "relid":1}
       ],
-      "users": {"Sam": [[0,0],
-                [1,0],
-                [0,1],
-                [1,0],
-                [1,0],
-                [0,-1],
-                [0,2],
-                [1,-1],
-                [0,0],
-                [-2,2],
-                [-1,1],
-                [1,-1]]}
+      "facts": [
+        {
+                "text": "commute 2-3 times a week (~12 commute days / month)",
+                "src": null,
+                "relid": 0
+          },
+        {
+                "text": "monthly vehicle maintainence is aprox $150 ( $12.5 / commute day)",
+                "src": null,
+                "relid": 1
+        },
+        {
+                "text": "Family member owns a car that is usually available",
+                "src": null,
+                "relid": 2
+        },
+        {
+                "text": "Renting for a day is $50",
+                "src": null,
+                "relid": 3
+        },
+        {
+                "text": "The train is $10 each way( $20 / commute day)",
+                "src":"http://www.caltrain.com/Fares/farechart.html",
+                "relid": 4
+        },
+        {
+                "text": "Train schedule is inflexible",
+                "src": null,
+                "relid": 5
+        },
+        {
+                "text": "Writing/reading can be done on train",
+                "src": null,
+                "relid": 6
+        },
+        {
+                "text": "conferences calls often overlap commute",
+                "src": null,
+                "relid": 7
+        },
+        {
+                "text": "assuming 25mpg, and $4/g, daily fuel is $8/commute day",
+                "src": null,
+                "relid": 8
+        },
+        {
+                "text": "AAA est, cost of small SUV as ~$8000/year = $53/commute day",
+                 "src":"https://newsroom.aaa.com/tag/driving-cost-per-mile/",
+                 "relid": 8
+        },
+        {
+                "text": "daily commute cost differnence is $30/day in favor of public transit",
+                 "src": null,
+                "relid": 10
+        },
+        {
+                "text": "Lyfting both ways is $60/day",
+                "src": null,
+                "relid": 11
+        }
+      ],
+      "users": {"Sam": {
+              "0": {"0":0, "1":0},
+              "1": {"0":1, "1":0},
+              "2": {"0":0, "1":1},
+              "3": {"0":1, "1":0},
+              "4": {"0":1, "1":0},
+              "5": {"0":0, "1":-1},
+              "6": {"0":0, "1":2},
+              "7": {"0":1, "1":-1},
+              "8": {"0":0, "1":0},
+              "9": {"0":-2, "1":2},
+              "10":{"0":-1, "1":1},
+              "11":{"0":1, "1":-1}}
+      }
     },
     {
       "title": "Whether I Should Run for President",
-      "version": "0.1",
+      "version": "0.2",
       "creator": {"uid":"Samantha"},
-      "outcomes": [ "Run for office", "Don't run for office"],
+      "next_fact": 2,
+      "next_outcome": 2,
+      "outcomes": [
+        {"text": "Run for office", "relid": 0},
+        {"text": "Don't run for office", "relid": 1}
+      ],
       "facts": [
         {"text": "The president has no privacy",
-         "src": null},
+         "src": null,
+         "relid":0},
         {"text": "The President gets to change the world",
-         "src": null}],
-      "users": { "Samantha": [[-1,1], [0,2]],
-              "Sam": [[-2,2], [0,2]]
+         "src": null,
+         "relid":1}
+      ],
+      "users": { "Samantha": {"0": {"0": -1, "1": 1},
+                               "1": {"0": 0, "1": 2}},
+                "Sam": {"0": {"0": -2, "1": 2},
+                               "1": {"0": 0, "1": 2}}
       }
     }
   ],

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Argument from './Argument';
-import ArgList from './ArgList';
+import Argument from './components/Argument';
+import ArgumentLayout from './components/ArgumentLayout';
+import ArgList from './components/ArgList';
 import jd from './exampleData.json';
 
 class App extends Component {
@@ -17,6 +18,10 @@ class App extends Component {
         <h1>ACH app</h1>
         <ArgList>{this.state.arguments}</ArgList>
         <Argument>{this.state.arguments[1]}</Argument>
+        <ArgumentLayout cellFactory={(cid, supp) => {
+            return ( <td key={cid}><textarea >{supp}</textarea></td>)}}>
+          {this.state.arguments[1]}
+        </ArgumentLayout>
       </div>
     );
   }
