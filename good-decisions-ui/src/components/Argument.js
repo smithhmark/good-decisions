@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
-import ArgumentV0dot2 from './ArgumentV0dot2';
+import ArgumentLayout from './ArgumentLayout';
 
 class Argument extends Component {
   render() {
-    let tbl = null;
-    if (this.props.children.version === "0.2") {
-      tbl = <ArgumentV0dot2 user={this.props.user}>{this.props.children}</ArgumentV0dot2>
-    } else {
-      tbl = <span>Yikes! version {this.props.children.version} unsupported</span>
-    }
     return (
       <div>
         <h1>{this.props.children.title}</h1>
         <h3>Created by:{this.props.children.creator.uid}</h3>
         <h3>Contributions by:{this.props.user? this.props.user : this.props.children.creator.uid}</h3>
         <div className="argument">
-          {tbl}
+          <ArgumentLayout cellFactory={(cid, supp) => {
+              return ( <td key={cid}>{supp}</td>)}}>
+            {this.props.children}
+          </ArgumentLayout>
         </div>
       </div>
     );
