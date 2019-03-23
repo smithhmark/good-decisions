@@ -27,7 +27,7 @@ export const buildUserRef= (uid) => {
 export const summarizeArgument = (arg) => {
   if (arg) {
     let ret = {};
-    ret.creator = buildUserRef(arg.creator);
+    ret.creator = buildUserRef(arg.creator.uid);
     ret.title = arg.title;
     ret.aid = arg.aid;
     return ret;
