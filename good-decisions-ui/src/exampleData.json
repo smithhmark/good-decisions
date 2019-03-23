@@ -114,15 +114,24 @@
   ],
   "users": [
           {"uid": "Sam",
+                  "uname": "Sam",
                   "email": "sam@example.com",
                   "args": {
                           "owned": [1001], "contrib":[1001,1002]
                   }
           },
           { "uid": "Samantha",
+                  "uname": "Samantha",
                   "email": "samantha@test.org",
                   "args": {
                           "owned": [1002], "contrib":[1002]
+                  }
+          },
+          { "uid": "Max",
+                  "uname": "Max",
+                  "email": "Max@test.org",
+                  "args": {
+                          "owned": null, "contrib":null
                   }
           }
   ]
