@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import ArgumentV0dot1 from './ArgumentV0dot1';
 import ArgumentV0dot2 from './ArgumentV0dot2';
 
 class Argument extends Component {
   render() {
     let tbl = null;
-    if (this.props.children.version === "0.1") {
-      tbl = <ArgumentV0dot1 user={this.props.user}>{this.props.children}</ArgumentV0dot1>
-    } else if (this.props.children.version === "0.2") {
+    if (this.props.children.version === "0.2") {
       tbl = <ArgumentV0dot2 user={this.props.user}>{this.props.children}</ArgumentV0dot2>
     } else {
-      tbl = <span>Yikes! I don't know how to render that!</span>
+      tbl = <span>Yikes! version {this.props.children.version} unsupported</span>
     }
     return (
       <div>
