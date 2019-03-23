@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import UserRef from './UserRef';
 
 const ArgListEntry = (props) => {
   if (props.creator) {
     return (<li key={props.kk}><span>{props.children}</span>
-       <span>&nbsp;(Created by:<span>{props.creator.uname}</span>)</span></li>
+       <span>&nbsp;(Created by:<UserRef>{props.creator}</UserRef>)</span></li>
     );
   } else {
     return (<li key={props.kk}><span>{props.children}</span></li>);
