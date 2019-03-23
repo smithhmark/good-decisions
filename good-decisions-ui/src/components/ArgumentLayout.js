@@ -97,7 +97,7 @@ const ArgumentLayout = (props) => {
           cells.push(cellFactory(cid, udata[rrid][crid]));
         }
       }
-      rows.push( <tr key={rowid(row)}> {cells} </tr>)
+      rows.push( <tr key={rowid(row)}>{cells}</tr>)
     }
   }
   return (
