@@ -3,14 +3,14 @@ import './App.css';
 import Argument from './components/Argument';
 import ArgumentLayout from './components/ArgumentLayout';
 import ArgList from './components/ArgList';
-import jd from './exampleData.json';
+import api from './fakeapi';
 
 class App extends Component {
   state = {}
   constructor() { 
     super();
-    this.state.arguments = jd.arguments;
-    this.state.users = jd.users;
+    this.state.arguments = api.allArguments();
+    this.state.users = api.allUsers();
   }
   render() {
     return (
